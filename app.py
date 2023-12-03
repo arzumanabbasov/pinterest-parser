@@ -5,7 +5,7 @@ import base64
 st.title("Pinterest Image Downloader")
 
 # Input: Text area for entering Pinterest post URLs
-urls = st.text_area("Enter Pinterest URL ( using "," as separator )")
+urls = st.text_area('Enter Pinterest URL ( using ',' as separator )')
 post_urls = urls.split(',')
 
 # Button to trigger image download and zip creation
