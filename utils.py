@@ -41,3 +41,4 @@ def create_zip(img_paths, zip_filename):
     with ZipFile(zip_filename, 'w') as zip_file:
         for img_path in img_paths:
             zip_file.write(img_path, os.path.basename(img_path))
+

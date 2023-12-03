@@ -5,8 +5,8 @@ import base64
 st.title("Pinterest Image Downloader")
 
 # Input: Text area for entering Pinterest post URLs
-urls = st.text_area("Enter Pinterest Post URLs (One URL per line):")
-post_urls = urls.split("\n")
+urls = st.text_input("Enter Pinterest URL")
+post_urls = urls.split('\n')
 
 # Button to trigger image download and zip creation
 if st.button("Download Images"):
@@ -24,4 +24,3 @@ if st.button("Download Images"):
         zip_b64 = base64.b64encode(zip_data).decode()
         st.success("Download complete!")
         st.markdown(f"### [Download Zip File](data:application/zip;base64,{zip_b64})", unsafe_allow_html=True)
-
