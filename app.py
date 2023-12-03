@@ -29,4 +29,4 @@ except:
     st.error("Enter valid Pinterest URLs separated by ','")
 
 finally:
-    st.info("Made with ❤️ by [Arzuman Abbasov](arzumanabbasov.wixsite.com/home)")
+    st.info("Made with ❤️ by [Arzuman Abbasov](https://arzumanabbasov.wixsite.com/home)")
