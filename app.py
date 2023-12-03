@@ -8,19 +8,25 @@ st.title("Pinterest Image Downloader")
 urls = st.text_area("Enter Pinterest URL ( using ',' as separator )")
 post_urls = urls.split(',')
 
+try:
 # Button to trigger image download and zip creation
-if st.button("Download Images"):
-    st.info("Downloading images. Please wait...")
+    if st.button("Download Images"):
+        st.info("Downloading images. Please wait...")
 
-    # Download images and create zip file
-    extractor = PinterestImageExtractor(post_urls)
-    img_paths = extractor.run()
-    zip_filename = 'images.zip'
-    create_zip(img_paths, zip_filename)
+        # Download images and create zip file
+        extractor = PinterestImageExtractor(post_urls)
+        img_paths = extractor.run()
+        zip_filename = 'images.zip'
+        create_zip(img_paths, zip_filename)
 
-    # Stream the zip file directly to the user
-    with open(zip_filename, 'rb') as file:
-        zip_data = file.read()
-        zip_b64 = base64.b64encode(zip_data).decode()
-        st.success("Download complete!")
-        st.markdown(f"### [Download Zip File](data:application/zip;base64,{zip_b64})", unsafe_allow_html=True)
+        # Stream the zip file directly to the user
+        with open(zip_filename, 'rb') as file:
+            zip_data = file.read()
+            zip_b64 = base64.b64encode(zip_data).decode()
+            st.success("Download complete!")
+            st.markdown(f"### [Download Zip File](data:application/zip;base64,{zip_b64})", unsafe_allow_html=True)
+except:
+    st.error("Enter valid Pinterest URLs separated by ','")
+
+finally:
+    st.info("Made with ❤️ by [Arzuman Abbasov](arzumanabbasov.wixsite.com/home)")
